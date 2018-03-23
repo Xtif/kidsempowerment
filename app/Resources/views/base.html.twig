@@ -4,18 +4,105 @@
   <head>
       <meta charset="UTF-8" />
       <title>
-        {% block title %}Welcome!{% endblock %}
+        {% block title %}KidsEmpowerment{% endblock %}
       </title>
 
-      <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+      <link rel="icon" type="image/x-icon" href="{{ asset('images/logo.png') }}" />
       
       {% block stylesheets %}
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
       {% endblock %} 
   </head>
 
+
   <body>
+
     {% block body %}
+
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+
+        <a class="navbar-brand" href="{{ path('homepage') }}">
+          <img src="{{ asset('images/logo.png') }}" width="50" height="50" class="d-inline-block align-middle mr-1" alt="logo_site">
+          <div class="d-inline-block align-middle logo-title">
+            <span class="site-title">KIDS EMPOWERMENT</span><br/>
+            <p class="subtitle m-0">A MEMBER OF THE INTERNATIONAL DETENTION COALITION</p>
+          </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#services">ABOUT US</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#competences">WHAT WE DO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#technologies">NETWORK</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#realisations">PROJECTS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#realisations">RESOURCES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">CONTACT US</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div id="carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active" style="background-image: url('{{ asset('images/caroussel/image_1.jpg') }}')">
+            <div class="carousel-caption d-none d-md-block col-lg-5 p-3">
+              <h5 class="title-caroussel-caption">LATEST NEWS</h5>
+              <p class="text-caroussel-caption mb-0">
+                In June 2017, Kids Empowerment addressed its recommendations to the UN Committee on Migrant Workers on the Draft Joint General Comment on the Human Rights of Children in the Context of International Migration.<br/>
+                Our recommendations, as well as other organizations’ recommendations, are available for consultation on the UN Human Rights Office of the High Commissioner’s website <a href="http://www.ohchr.org/EN/HRBodies/CRC/Pages/AddWrittenContributions.aspx" class="clickable-link">here</a>.
+              </p>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url('{{ asset('images/caroussel/image_2.jpg') }}')">
+            <div class="carousel-caption d-none d-md-block col-lg-5 p-3">
+              <h5 class="title-caroussel-caption">LATEST NEWS</h5>
+              <p class="text-caroussel-caption mb-0">
+                In June 2017, Kids Empowerment addressed its recommendations to the UN Committee on Migrant Workers on the Draft Joint General Comment on the Human Rights of Children in the Context of International Migration.<br/>
+                Our recommendations, as well as other organizations’ recommendations, are available for consultation on the UN Human Rights Office of the High Commissioner’s website <a href="http://www.ohchr.org/EN/HRBodies/CRC/Pages/AddWrittenContributions.aspx" class="clickable-link">here</a>.
+              </p>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url('{{ asset('images/caroussel/image_3.jpg') }}')">
+            <div class="carousel-caption d-none d-md-block col-lg-5 p-3">
+              <h5 class="title-caroussel-caption">LATEST NEWS</h5>
+              <p class="text-caroussel-caption mb-0">
+                In June 2017, Kids Empowerment addressed its recommendations to the UN Committee on Migrant Workers on the Draft Joint General Comment on the Human Rights of Children in the Context of International Migration.<br/>
+                Our recommendations, as well as other organizations’ recommendations, are available for consultation on the UN Human Rights Office of the High Commissioner’s website <a href="http://www.ohchr.org/EN/HRBodies/CRC/Pages/AddWrittenContributions.aspx" class="clickable-link">here</a>.
+              </p>
+            </div>
+          </div>
+
+          <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+
+        </div>
+      </div> <!--End carousel -->
+
     {% endblock %}
 
     {% block javascripts %}
@@ -23,6 +110,7 @@
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" integrity="sha384-feJI7QwhOS+hwpX2zkaeJQjeiwlhOP+SdQDqhgvvo1DsjtiSQByFdThsxO669S2D" crossorigin="anonymous"></script>
+      <script type="text/javascript" href="{{ asset('js/base.js') }}"></script>
     {% endblock %}
   </body>
 
