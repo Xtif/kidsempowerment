@@ -7,3 +7,37 @@ homepage:
     defaults:
       _controller: "AppBundle:Default:index"
   
+about_us:
+    path: /about_us
+    defaults:
+      _controller: "AppBundle:Default:aboutUs"
+
+what_we_do:
+    path: /what_we_do
+    defaults:
+      _controller: "AppBundle:Default:whatWeDo"
+
+network:
+    path: /network
+    defaults:
+      _controller: "AppBundle:Default:network"
+
+projetcs:
+    path: /projects
+    defaults:
+      _controller: "AppBundle:Default:projects"
+
+resources:
+    path: /resources
+    defaults:
+      _controller: "AppBundle:Default:resources"
+
+add_member:
+    path: /member/add
+    defaults:
+      _controller: "AppBundle:Member:add"
+
+member:
+    path: /member/{id}
+    defaults:
+      _controller: "AppBundle:Member:show"
