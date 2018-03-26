@@ -32,6 +32,16 @@ resources:
     defaults:
       _controller: "AppBundle:Default:resources"
 
+contact_us:
+    path: /contact_us
+    defaults:
+      _controller: "AppBundle:Default:contactUs"
+
+legal_notices:
+    path: /legal_notices
+    defaults:
+      _controller: "AppBundle:Default:legalNotices"
+
 member:
     path: /member/{id}
     defaults:

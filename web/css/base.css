@@ -21,13 +21,23 @@
 }
 
 /********** Eléments de base **********/
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     font-family: 'Agenda-Light', 'Palatino Linotype', Arial, sans-serif;
     font-size: 1em;
+    margin-bottom: 75px;
 }
 
 .clickable-link, .clickable-link:hover {
     color: #138496;
+}
+
+h1, h2 {
+    color: #009101 !important;
 }
 
 /********** Barre du menu **********/
@@ -110,5 +120,21 @@ nav:hover {
     min-height: 300px;
     z-index: -2;
 }
+
+
+/*****Footer*****/
+footer {
+    background-color: #009101;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a, footer a:hover {
+    color: white;
+}
+
+
 
 

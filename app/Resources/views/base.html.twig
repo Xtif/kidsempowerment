@@ -40,7 +40,7 @@
               <a class="nav-link" href="#services">ABOUT US</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#competences">WHAT WE DO</a>
+              <a class="nav-link" href="{{ path('what_we_do') }}">WHAT WE DO</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ path('add_member') }}">ADD MEMBER</a>
@@ -111,7 +111,20 @@
 
     {% endblock %}
 
+    <footer class="row justify-content-between footer mb-0 ml-0 mr-0 p-2">
+
+      <a class="pt-1" href="{{ path('legal_notices') }}">Legal notices</a>
+      <div>
+          <a class="m-2" href="https://www.linkedin.com/company/10852527/"><i class="fab fa-2x fa-linkedin" aria-hidden="true"></i></a>
+          <a class="m-2" href="https://twitter.com/K_Empowerment"><i class="fab fa-2x fa-twitter-square" aria-hidden="true"></i></a>
+          <a class="m-2" href="https://www.facebook.com/kidsempowerment/"><i class="fab fa-2x fa-facebook-square" aria-hidden="true"></i></a>
+      </div>
+      <a class="pt-1" href="{{ path('contact_us') }}">Contact us</a>
+
+    </footer>
+
     {% block javascripts %}
+      <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
