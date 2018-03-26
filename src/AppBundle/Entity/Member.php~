@@ -41,9 +41,9 @@ class Member
     private $lastname;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="position", type="array", nullable=true)
+     * @ORM\Column(name="position", type="string", length=255)
      */
     private $position;
 
@@ -64,7 +64,7 @@ class Member
     /**
      * @var string
      *
-     * @ORM\Column(name="team", type="string", length=255)
+     * @ORM\Column(name="team", type="array", nullable=true)
      *
      * @Assert\NotBlank(message = "The team is required.")
      */
@@ -103,30 +103,6 @@ class Member
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set position
-     *
-     * @param string $position
-     *
-     * @return Member
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    /**
-     * Get position
-     *
-     * @return string
-     */
-    public function getPosition()
-    {
-        return $this->position;
     }
 
     /**
@@ -178,30 +154,6 @@ class Member
     }
 
     /**
-     * Set team
-     *
-     * @param string $team
-     *
-     * @return Member
-     */
-    public function setTeam($team)
-    {
-        $this->team = $team;
-
-        return $this;
-    }
-
-    /**
-     * Get team
-     *
-     * @return string
-     */
-    public function getTeam()
-    {
-        return $this->team;
-    }
-
-    /**
      * Set firstname
      *
      * @param string $firstname
@@ -248,4 +200,5 @@ class Member
     {
         return $this->lastname;
     }
+
 }

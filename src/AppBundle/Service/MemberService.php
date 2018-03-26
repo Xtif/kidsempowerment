@@ -14,7 +14,7 @@ class MemberService
 	}
 
 	public function findMemberById($id) {
-		return $this->memberRepository->findById($id);
+		return $this->memberRepository->findOneById($id);
 	}
 
 } //End class

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+	{{ parent() }}
+
+	<div class="col-lg-11 m-auto">
+		<h1>{{ member.firstname }} {{ member.lastname }}</h1>
+
+		<h2>{{ member.position }}</h2>
+
+		<p>{{ member.biography }}</p>
+
+		<p>Contact : <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
+
+		<a class="btn btn-info" role="button" href="{{ path('update_member', { 'id': member.id }) }}">Update informations</a>
+		<a class="btn btn-danger" role="button" href="{{ path('delete_member', { 'id': member.id }) }}">Delete this member</a>
+	</div>
+
+{% endblock %}
+
+

@@ -32,12 +32,22 @@ resources:
     defaults:
       _controller: "AppBundle:Default:resources"
 
+member:
+    path: /member/{id}
+    defaults:
+      _controller: "AppBundle:Member:show"
+
 add_member:
     path: /member/add
     defaults:
       _controller: "AppBundle:Member:add"
 
-member:
-    path: /member/{id}
+add_member:
+    path: /member/update/{id}
     defaults:
-      _controller: "AppBundle:Member:show"
+      _controller: "AppBundle:Member:update"
+
+delete_member:
+    path: /member/delete
+    defaults:
+      _controller: "AppBundle:Member:delete"

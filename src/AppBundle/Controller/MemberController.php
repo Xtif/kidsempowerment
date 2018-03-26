@@ -29,7 +29,7 @@ class MemberController extends Controller
      * @Route("/member/{id}", name="member")
      */
     public function showAction($id) {
-      $member = $this->memberService->findById($id);
+      $member = $this->memberService->findMemberById($id);
       return $this->render('default/member.html.twig', array('member' => $member)); 
     } //End showAction()
 
@@ -136,12 +136,115 @@ class MemberController extends Controller
         }
     } //End function add_member
 
-    public function legalNoticeAction(Request $request) {
-        return $this->render('default/legal_notice.html.twig');
-    }
+    /**
+     * @Route("/member/update/{id}", name="update_member")
+     */
+    public function updateAction($id, Request $request) {
 
-    public function tosAction(Request $request) {
-        return $this->render('default/tos.html.twig');
-    }
+      $member = $this->memberService->findMemberById($id);
 
+      $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $member);
+
+      $formBuilder
+        ->add('firstname', TextType::class,
+          array(
+            'label' => 'Firstname (required)',
+            'attr' => array(
+              'class' => 'form-control col-lg-10 m-auto',
+              'placeholder' => 'Firstname of the new team member'
+            )
+          )
+        )
+        ->add('lastname', TextType::class,
+          array(
+            'label' => 'Lastname (required)',
+            'attr' => array(
+              'class' => 'form-control col-lg-10 m-auto',
+              'placeholder' => 'Lastname of the new team member'
+            )
+          )
+        )
+        ->add('position', TextType::class,
+          array(
+            'label' => 'Position (not required)',
+            'attr' => array(
+              'class' => 'form-control col-lg-10 m-auto',
+              'placeholder' => 'Position of the new team member (ex: Project Management)'
+            )
+          )
+        )
+        ->add('email', TextType::class,
+          array(
+            'label' => 'Email (not required)',
+            'attr' => array(
+              'class' => 'form-control col-lg-10 m-auto',
+              'placeholder' => 'Email of the new team member'
+            )
+          )
+        )
+        ->add('team', ChoiceType::class,
+          array(
+            'choices'  => array(
+              'Operational team' => 'Operational team',
+              'Legal expert' => 'Legal expert',
+              'Board member' => 'Board member'
+            ),
+            'expanded' => true,
+            'multiple' => true,
+            'label' => 'Team(s) associated (required)',
+            'attr' => array(
+              'class' => 'form-control col-lg-10 m-auto'
+            )
+          )
+        )
+        ->add('biography', TextAreaType::class,
+          array(
+            'label' => 'Biography (not required)',
+            'attr' => array(
+              'class' => 'form-control col-lg-10 m-auto',
+              'placeholder' => 'Biography of the new team member'
+            )
+          )
+        )
+        ->add('submit', 
+          SubmitType::class,
+            array(
+              'label' => 'Update member informations',
+              'attr' => array(
+                'class' => 'btn btn-info'
+              )
+            )
+        );
+
+        $form = $formBuilder->getForm();
+
+        if ($request->isMethod('POST')) {
+
+          $form->handleRequest($request);
+
+          if ($form->isValid()) { 
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($member);
+            $em->flush();
+            
+            return $this->redirectToRoute('member', array('id' => $member->getId()));
+          } else { // Si les données ne sont pas valides
+            return $this->render('default/update_member.html.twig', array('id' => $member->getId()));
+          }
+
+        } else { // Si on arrive sur la page pour la première fois
+          return $this->render('default/update_member.html.twig', array('form' => $form->createView()));
+        }
+    } //End function update_member
+
+    /**
+     * @Route("/member/delete/{id}", name="delete_member")
+     */
+    public function deleteAction($id) {
+      $member = $this->memberService->findMemberById($id);
+
+      return $this->render('default/member.html.twig', array('member' => $member)); 
+    } //End showAction()
 }
